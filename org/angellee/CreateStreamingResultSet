@@ -1,0 +1,10 @@
+/**
+     * We only stream result sets when they are forward-only, read-only, and the
+     * fetch size has been set to Integer.MIN_VALUE
+     * 
+     * @return true if this result set should be streamed row at-a-time, rather
+     *         than read all at once.
+     */
+    protected boolean createStreamingResultSet() {
+        return ((this.resultSetType == java.sql.ResultSet.TYPE_FORWARD_ONLY) && (this.resultSetConcurrency == java.sql.ResultSet.CONCUR_READ_ONLY) && (this.fetchSize == Integer.MIN_VALUE));
+    }
